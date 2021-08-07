@@ -1,12 +1,10 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import topicData from './topic'
 Vue.use(Vuex);
 
-const actions = {};
-const mutations = {};
-const state = {};
 export default new Vuex.Store({
-    actions,
-    mutations,
-    state,
+    modules: {
+        topicData,
+    }
 })

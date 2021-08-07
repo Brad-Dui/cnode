@@ -1,11 +1,21 @@
 <template>
-  <div id="app"></div>
+  <div id="app">
+    <Nav></Nav>
+    <div class="content">
+      <div class="content">
+        <router-view></router-view>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import Nav from "./components/Nav.vue";
 export default {
   name: "App",
-  components: {},
+  components: {
+    Nav,
+  },
   mounted() {
     console.log(this);
   },
@@ -13,4 +23,8 @@ export default {
 </script>
 
 <style>
+.content {
+  widows: 100%;
+  background-color: slategray;
+}
 </style>
