@@ -6,6 +6,9 @@
 export default {
   name: "App",
   components: {},
+  mounted() {
+    console.log(this);
+  },
 };
 </script>
 
