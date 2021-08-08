@@ -24,6 +24,7 @@ export default {
 <style scoped>
 .header {
   display: flex;
+  height: 60px;
   background-color: #000;
 }
 h2 {

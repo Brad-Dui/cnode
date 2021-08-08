@@ -5,6 +5,9 @@
 <script>
 export default {
   name: "Good",
+  activated() {
+    this.$store.dispatch("getTopic", this.$route.params.tab);
+  },
 };
 </script>
 

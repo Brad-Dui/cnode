@@ -1,8 +1,8 @@
 import axios from 'axios';
 const topicData = {
     actions: {
-        getTopic(context) {
-            axios.get(`https://cnodejs.org/api/v1/topics?tab=${"ask"}&page=${2}`).then(res => {
+        getTopic(context, value) {
+            axios.get(`https://cnodejs.org/api/v1/topics?tab=${value}`).then(res => {
                 context.commit('GETTOPIC', res.data)
                 console.log(context.state)
             }).catch(err => {
@@ -12,15 +12,11 @@ const topicData = {
     },
     mutations: {
         GETTOPIC(state, value) {
-            state.topic.all = value.data
+            state.topic = value.data
         }
     },
     state: {
-        topic: {
-            all: [],
-            good: [],
-
-        }
+        topic: []
     },
 }
 export default topicData

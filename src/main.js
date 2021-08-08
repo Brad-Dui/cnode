@@ -11,7 +11,4 @@ new Vue({
   store,
   router,
   render: h => h(App),
-  mounted() {
-    this.$store.dispatch("getTopic")
-  }
 }).$mount('#app')

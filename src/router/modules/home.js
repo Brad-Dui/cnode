@@ -13,7 +13,7 @@ const homeRouter = {
     children: [
         {
             name: "all",
-            path: "all",
+            path: "all/:tab",
             component: All
         },
         {

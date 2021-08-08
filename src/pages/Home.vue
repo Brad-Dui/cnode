@@ -6,14 +6,16 @@
           <router-link
             class="homeLink"
             active-class="homeActive"
-            :to="{ name: nav.tab }"
+            :to="{ name: nav.tab, params: { tab: nav.tab } }"
             >{{ nav.title }}</router-link
           >
         </li>
       </ul>
     </div>
     <div class="rightContent">
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </div>
   </div>
 </template>
@@ -46,7 +48,7 @@ export default {
   width: 200px;
   background-color: #000;
   border-radius: 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .leftNav ul li {
   list-style: none;
@@ -59,6 +61,7 @@ export default {
   font-size: 1.2em;
   line-height: 50px;
   text-align: center;
+  border-radius: 5px;
 }
 
 .leftNav .homeActive {
@@ -67,6 +70,7 @@ export default {
 .rightContent {
   height: 100%;
   width: 50%;
+  margin-left: 10px;
   background-color: slateblue;
 }
 </style>

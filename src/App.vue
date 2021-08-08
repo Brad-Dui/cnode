@@ -14,15 +14,12 @@ export default {
   components: {
     Nav,
   },
-  mounted() {
-    console.log(this);
-  },
 };
 </script>
 
 <style>
 .content {
   width: 100%;
-  background-color: slategray;
+  background-color: #e1e1e1;
 }
 </style>
