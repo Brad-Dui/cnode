@@ -2,9 +2,7 @@
   <div id="app">
     <Nav></Nav>
     <div class="content">
-      <div class="content">
-        <router-view></router-view>
-      </div>
+      <router-view></router-view>
     </div>
   </div>
 </template>
@@ -24,7 +22,7 @@ export default {
 
 <style>
 .content {
-  widows: 100%;
+  width: 100%;
   background-color: slategray;
 }
 </style>

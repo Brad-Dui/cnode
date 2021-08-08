@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import topicData from './topic'
+import topicData from './modules/topic'
 Vue.use(Vuex);
 
 export default new Vuex.Store({

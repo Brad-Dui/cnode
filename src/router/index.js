@@ -1,25 +1,13 @@
 import VueRouter from 'vue-router'
-import About from '../pages/About'
-import Home from '../pages/Home'
-import Tutorial from '../pages/Tutorial'
+import homeRouter from './modules/home'
+import tutorialRouter from './modules/tutorial'
+import aboutRouter from './modules/about'
 
 const router = new VueRouter({
     routes: [
-        {
-            path: '/home',
-            component: Home,
-            meta: { title: "主页" }
-        },
-        {
-            path: '/tutorial',
-            component: Tutorial,
-            meta: { title: "教程" }
-        },
-        {
-            path: '/about',
-            component: About,
-            meta: { title: "关于" }
-        }
+        homeRouter,
+        tutorialRouter,
+        aboutRouter
     ]
 })
 router.afterEach(to => {
