@@ -4,7 +4,7 @@ const topicData = {
         getTopic(context, value) {
             axios.get(`https://cnodejs.org/api/v1/topics?tab=${value}`).then(res => {
                 context.commit('GETTOPIC', res.data)
-                console.log(context.state)
+                console.log("根据" + value + "请求的数据", context.state)
             }).catch(err => {
                 console.log(err.message)
             })

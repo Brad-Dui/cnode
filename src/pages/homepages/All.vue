@@ -1,7 +1,10 @@
 <template>
   <div class="all">
     <ul>
-      <li v-for="l in topic" :key="l.id">{{ l.title }}</li>
+      <li v-for="l in topic" :key="l.id">
+        <img src="`l.author.avatar_url`" />
+        <span>{{ l.author.loginname }}</span>
+      </li>
     </ul>
   </div>
 </template>
@@ -11,8 +14,15 @@ export default {
   name: "All",
   data() {
     return {
-      topic: this.$store.state.topicData.topic,
+      topicData: this.$store.state.topicData,
     };
+  },
+  computed: {
+    topic: {
+      get() {
+        return this.topicData.topic;
+      },
+    },
   },
   activated() {
     console.log(this);
