@@ -3,8 +3,11 @@ const topicData = {
     actions: {
         getTopic(context, value) {
             axios.get(`https://cnodejs.org/api/v1/topics?tab=${value}`).then(res => {
-                context.commit('GETTOPIC', res.data)
+                // res.data.data.forEach(x => {
+                //     x.author.avatar_url = x.author.avatar_url.replace(".com", ".zeruns.tech")
+                // });
                 console.log("根据" + value + "请求的数据", context.state)
+                context.commit('GETTOPIC', res.data.data)
             }).catch(err => {
                 console.log(err.message)
             })
@@ -12,7 +15,7 @@ const topicData = {
     },
     mutations: {
         GETTOPIC(state, value) {
-            state.topic = value.data
+            state.topic = value
         }
     },
     state: {

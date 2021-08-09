@@ -20,6 +20,5 @@ export default {
 <style>
 .content {
   width: 100%;
-  background-color: #e1e1e1;
 }
 </style>

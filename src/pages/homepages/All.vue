@@ -24,6 +24,13 @@ export default {
       },
     },
   },
+  watch: {
+    $route: function (to, from) {
+      if (to !== from) {
+        this.$store.dispatch("getTopic", this.$route.params.tab);
+      }
+    },
+  },
   activated() {
     console.log(this);
     this.$store.dispatch("getTopic", this.$route.params.tab);
@@ -31,5 +38,21 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.all {
+  border: 1px solid #444c56;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.all li {
+  color: #adbac7;
+  border-bottom: 1px solid #444c56;
+  list-style: none;
+}
+.all li:last-child {
+  border-bottom: none;
+}
+.all li:hover {
+  background-color: #2d333b;
+}
 </style>

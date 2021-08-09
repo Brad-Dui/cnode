@@ -48,7 +48,7 @@ h2 {
   line-height: 60px;
   text-decoration: none;
   text-align: center;
-  color: #fff;
+  color: #cdd9e5;
 }
 .navActive {
   border-bottom: 5px solid skyblue;

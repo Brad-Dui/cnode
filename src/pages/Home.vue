@@ -6,7 +6,8 @@
           <router-link
             class="homeLink"
             active-class="homeActive"
-            :to="{ name: nav.tab, params: { tab: nav.tab } }"
+            :to="{ name: 'all', params: { tab: nav.tab } }"
+            exact
             >{{ nav.title }}</router-link
           >
         </li>
@@ -31,7 +32,6 @@ export default {
         { id: "003", tab: "share", title: "分享" },
         { id: "004", tab: "ask", title: "问答" },
         { id: "005", tab: "job", title: "招聘" },
-        { id: "006", tab: "test", title: "客户端测试" },
       ],
     };
   },
@@ -46,7 +46,7 @@ export default {
 .leftNav {
   height: 500px;
   width: 200px;
-  background-color: #000;
+  background-color: #21252b;
   border-radius: 10px;
   /* overflow: hidden; */
 }
@@ -57,7 +57,7 @@ export default {
   display: block;
   text-decoration: none;
   height: 50px;
-  color: #fff;
+  color: #cdd9e5;
   font-size: 1.2em;
   line-height: 50px;
   text-align: center;
@@ -65,12 +65,12 @@ export default {
 }
 
 .leftNav .homeActive {
-  background-color: skyblue;
+  background-color: #263040;
+  color: #6cb6ff;
 }
 .rightContent {
   height: 100%;
   width: 50%;
   margin-left: 10px;
-  background-color: slateblue;
 }
 </style>
