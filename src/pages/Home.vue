@@ -70,7 +70,18 @@ export default {
 }
 .rightContent {
   height: 100%;
-  width: 50%;
+  width: 60%;
   margin-left: 10px;
+}
+@media screen and (max-width: 900px) {
+  .home {
+    margin-left: 0;
+  }
+  .leftNav {
+    display: none;
+  }
+  .rightContent {
+    width: 100%;
+  }
 }
 </style>

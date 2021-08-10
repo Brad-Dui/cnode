@@ -9,6 +9,13 @@
             ><a href="">{{ l.title }}</a></span
           >
         </div>
+        <div class="rightItem">
+          <div>
+            <span style="background-color: inherit">回复/浏览：</span>
+            <span>{{ l.reply_count }}/{{ l.visit_count }}</span>
+          </div>
+          <span v-click @click="getDate(l.last_reply_at)">{{ replyDate }}</span>
+        </div>
       </li>
     </ul>
   </div>
@@ -29,6 +36,7 @@ export default {
   data() {
     return {
       topicData: this.$store.state.topicData,
+      replyDate: "",
     };
   },
   computed: {
@@ -38,6 +46,11 @@ export default {
       },
     },
   },
+  methods: {
+    getDate(date) {
+      this.replyDate = date;
+    },
+  },
   watch: {
     $route: function (to, from) {
       if (to !== from) {
@@ -45,8 +58,17 @@ export default {
       }
     },
   },
+  directives: {
+    //默认点击 - 获取标签参数 方便处理
+    click: {
+      inserted: function (el) {
+        el.click();
+      },
+    },
+  },
   activated() {
     console.log(this);
+    console.log(this.replyDate);
     this.$store.dispatch("getTopic", this.$route.params.tab);
   },
 };
@@ -101,5 +123,17 @@ li .leftItem {
 .topicTitle a:hover {
   color: #539bf5;
   text-decoration: underline #539bf5;
+}
+li .rightItem {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.rightItem span {
+  font-size: 10px;
+  background-color: #373c47;
+  padding: 2px;
+  border-radius: 5px;
 }
 </style>
