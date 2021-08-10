@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="date">
     <span>{{ replayDate }}前</span>
   </div>
 </template>
@@ -37,5 +37,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.date {
+  margin-right: 5px;
+}
 </style>

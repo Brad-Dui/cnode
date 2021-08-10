@@ -40,15 +40,17 @@ export default {
 
 <style scoped>
 .home {
-  margin: 10px 0 10px 10%;
   display: flex;
+  justify-content: center;
+  margin-top: 10px;
 }
 .leftNav {
   height: 500px;
   width: 200px;
   background-color: #21252b;
   border-radius: 10px;
-  /* overflow: hidden; */
+  display: flex;
+  flex-direction: column;
 }
 .leftNav ul li {
   list-style: none;
@@ -71,14 +73,21 @@ export default {
 .rightContent {
   height: 100%;
   width: 60%;
-  margin-left: 10px;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1000px) {
   .home {
     margin-left: 0;
+    flex-direction: column;
   }
   .leftNav {
-    display: none;
+    width: 100%;
+    height: 50px;
+  }
+  .leftNav ul {
+    display: flex;
+  }
+  .leftNav ul li {
+    width: 20%;
   }
   .rightContent {
     width: 100%;

@@ -10,7 +10,7 @@
           >
         </div>
         <div class="rightItem">
-          <div>
+          <div class="reply">
             <span style="background-color: inherit">回复/浏览：</span>
             <span>{{ l.reply_count }}/{{ l.visit_count }}</span>
           </div>
@@ -102,7 +102,7 @@ export default {
   background-color: #2d333b;
 }
 li .leftItem {
-  width: 80%;
+  width: 70%;
   display: flex;
 }
 .leftItem img {
@@ -133,7 +133,7 @@ li .leftItem {
   text-decoration: underline #539bf5;
 }
 li .rightItem {
-  width: 20%;
+  width: 30%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -143,5 +143,13 @@ li .rightItem {
   background-color: #373c47;
   padding: 2px;
   border-radius: 5px;
+}
+@media screen and (max-width: 1000px) {
+  .reply {
+    display: none;
+  }
+  .rightItem {
+    flex-direction: row-reverse;
+  }
 }
 </style>
