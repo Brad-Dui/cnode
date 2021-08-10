@@ -14,7 +14,11 @@
             <span style="background-color: inherit">回复/浏览：</span>
             <span>{{ l.reply_count }}/{{ l.visit_count }}</span>
           </div>
-          <span v-click @click="getDate(l.last_reply_at)">{{ replyDate }}</span>
+          <!-- 优化 - 新建组件处理时间戳 -->
+          <!-- <span v-click:click="getDate(l.last_reply_at, l.id)">{{
+            replyDate[l.id]
+          }}</span> -->
+          <Date :thisTopic="l"></Date>
         </div>
       </li>
     </ul>
@@ -23,8 +27,9 @@
 
 <script>
 import Tag from "./Tag.vue";
+import Date from "./Date.vue";
 export default {
-  components: { Tag },
+  components: { Tag, Date },
   name: "All",
   // 刷新数据丢失
   // data(){
@@ -36,7 +41,7 @@ export default {
   data() {
     return {
       topicData: this.$store.state.topicData,
-      replyDate: "",
+      replyDate: {},
     };
   },
   computed: {
@@ -46,26 +51,29 @@ export default {
       },
     },
   },
-  methods: {
-    getDate(date) {
-      this.replyDate = date;
-    },
-  },
+
   watch: {
+    //多路由共用一个页面
     $route: function (to, from) {
       if (to !== from) {
         this.$store.dispatch("getTopic", this.$route.params.tab);
       }
     },
   },
-  directives: {
-    //默认点击 - 获取标签参数 方便处理
-    click: {
-      inserted: function (el) {
-        el.click();
-      },
-    },
-  },
+  // methods: {
+  //   //处理每个topic的时间戳
+  //   getDate(date, id) {
+  //     this.replyDate[id] = date;
+  //   },
+  // },
+  // directives: {
+  //   //默认点击 - 获取标签参数 方便处理
+  //   click: {
+  //     inserted: function (el) {
+  //       el.click();
+  //     },
+  //   },
+  // },
   activated() {
     console.log(this);
     console.log(this.replyDate);
@@ -74,7 +82,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .all {
   border: 1px solid #444c56;
   border-radius: 5px;
@@ -127,7 +135,7 @@ li .leftItem {
 li .rightItem {
   width: 20%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 .rightItem span {
