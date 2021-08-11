@@ -22,7 +22,7 @@
         </div>
       </li>
     </ul>
-    <Pagebtn></Pagebtn>
+    <Pagebtn :tab="tab"></Pagebtn>
   </div>
 </template>
 
@@ -32,6 +32,7 @@ import Date from "./Date.vue";
 import Pagebtn from "./Pagebtn.vue";
 export default {
   components: { Tag, Date, Pagebtn },
+  props: ["tab"],
   name: "All",
   // 刷新数据丢失
   // data(){
@@ -58,7 +59,7 @@ export default {
     //多路由共用一个页面
     $route: function (to, from) {
       if (to !== from) {
-        this.$store.dispatch("getTopic", this.$route.params.tab);
+        this.$store.dispatch("getTopic", [this.tab, 1]);
       }
     },
   },
@@ -79,7 +80,7 @@ export default {
   activated() {
     console.log(this);
     console.log(this.replyDate);
-    this.$store.dispatch("getTopic", this.$route.params.tab);
+    this.$store.dispatch("getTopic", [this.tab, 1]);
   },
 };
 </script>

@@ -20,6 +20,7 @@
 <script>
 export default {
   name: "Pagebtn",
+  props: ["tab"],
   data() {
     return {
       pages: [
@@ -37,8 +38,11 @@ export default {
         x.choiced = false;
         if (x.id == id) {
           x.choiced = true;
+          x.hover = false;
         }
       });
+      this.$store.dispatch("getTopic", [this.tab, parseInt(id)]);
+      console.log(this.tab);
     },
     check(id, choiced, bool) {
       if (!choiced) {

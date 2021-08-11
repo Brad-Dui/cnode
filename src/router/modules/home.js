@@ -8,8 +8,13 @@ const homeRouter = {
     children: [
         {
             name: "all",
-            path: "all/:tab",
-            component: All
+            path: "topic",
+            component: All,
+            props(route) {
+                return {
+                    tab: route.query.tab,
+                }
+            }
         },
     ]
 }
