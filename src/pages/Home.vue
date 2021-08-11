@@ -32,6 +32,7 @@ export default {
         { id: "003", tab: "share", title: "分享" },
         { id: "004", tab: "ask", title: "问答" },
         { id: "005", tab: "job", title: "招聘" },
+        { id: "006", tab: "dev", title: "测试" },
       ],
     };
   },
@@ -71,7 +72,6 @@ export default {
   color: #6cb6ff;
 }
 .rightContent {
-  height: 100%;
   width: 60%;
 }
 @media screen and (max-width: 1000px) {

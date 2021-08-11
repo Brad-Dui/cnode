@@ -22,14 +22,16 @@
         </div>
       </li>
     </ul>
+    <Pagebtn></Pagebtn>
   </div>
 </template>
 
 <script>
 import Tag from "./Tag.vue";
 import Date from "./Date.vue";
+import Pagebtn from "./Pagebtn.vue";
 export default {
-  components: { Tag, Date },
+  components: { Tag, Date, Pagebtn },
   name: "All",
   // 刷新数据丢失
   // data(){
@@ -82,7 +84,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .all {
   border: 1px solid #444c56;
   border-radius: 5px;
@@ -95,9 +97,9 @@ export default {
   border-bottom: 1px solid #444c56;
   list-style: none;
 }
-.all li:last-child {
+/* .all li:last-child {
   border-bottom: none;
-}
+} */
 .all li:hover {
   background-color: #2d333b;
 }

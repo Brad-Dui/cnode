@@ -5,6 +5,7 @@
     <span v-else-if="share" class="simpleTag">分享</span>
     <span v-else-if="ask" class="simpleTag">问答</span>
     <span v-else-if="job" class="simpleTag">招聘</span>
+    <span v-else-if="dev" class="simpleTag">测试</span>
   </div>
 </template>
 
@@ -27,6 +28,9 @@ export default {
     },
     job() {
       return this.thisTopic.tab == "job";
+    },
+    dev() {
+      return this.thisTopic.tab == "dev";
     },
   },
 };
