@@ -2,13 +2,15 @@ import VueRouter from 'vue-router'
 import homeRouter from './modules/home'
 import tutorialRouter from './modules/tutorial'
 import aboutRouter from './modules/about'
+import detailRouter from './modules/detail'
 
 const router = new VueRouter({
     routes: [
         { path: '/', redirect: '/home/introduce' },
         homeRouter,
         tutorialRouter,
-        aboutRouter
+        aboutRouter,
+        detailRouter
     ]
 })
 router.afterEach(to => {

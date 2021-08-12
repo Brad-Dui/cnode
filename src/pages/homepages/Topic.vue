@@ -6,7 +6,7 @@
           <img :src="l.author.avatar_url" />
           <Tag :thisTopic="l"></Tag>
           <span class="topicTitle"
-            ><a href="">{{ l.title }}</a></span
+            ><a href="##" @click="toDetail(l)">{{ l.title }}</a></span
           >
         </div>
         <div class="rightItem">
@@ -14,10 +14,6 @@
             <span style="background-color: inherit">回复/浏览：</span>
             <span>{{ l.reply_count }}/{{ l.visit_count }}</span>
           </div>
-          <!-- 优化 - 新建组件处理时间戳 -->
-          <!-- <span v-click:click="getDate(l.last_reply_at, l.id)">{{
-            replyDate[l.id]
-          }}</span> -->
           <Date :thisTopic="l"></Date>
         </div>
       </li>
@@ -33,14 +29,7 @@ import Pagebtn from "./Pagebtn.vue";
 export default {
   components: { Tag, Date, Pagebtn },
   props: ["tab"],
-  name: "All",
-  // 刷新数据丢失
-  // data(){
-  //   return {
-  //     topic:this.$store.state.topicData.topic
-  //   }
-  // },
-  //修改
+  name: "Topic",
   data() {
     return {
       topicData: this.$store.state.topicData,
@@ -54,7 +43,14 @@ export default {
       },
     },
   },
-
+  methods: {
+    toDetail(topic) {
+      this.$router.push({
+        name: "detail",
+      });
+      sessionStorage.setItem("topic", JSON.stringify(topic));
+    },
+  },
   watch: {
     //多路由共用一个页面
     $route: function (to, from) {
@@ -63,23 +59,7 @@ export default {
       }
     },
   },
-  // methods: {
-  //   //处理每个topic的时间戳
-  //   getDate(date, id) {
-  //     this.replyDate[id] = date;
-  //   },
-  // },
-  // directives: {
-  //   //默认点击 - 获取标签参数 方便处理
-  //   click: {
-  //     inserted: function (el) {
-  //       el.click();
-  //     },
-  //   },
-  // },
   activated() {
-    console.log(this);
-    console.log(this.replyDate);
     this.$store.dispatch("getTopic", [this.tab, 1]);
   },
 };

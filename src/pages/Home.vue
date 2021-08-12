@@ -14,7 +14,7 @@
           <router-link
             class="homeLink"
             active-class="homeActive"
-            :to="{ name: 'all', query: { tab: nav.tab } }"
+            :to="{ name: 'topic', query: { tab: nav.tab } }"
             exact
             >{{ nav.title }}</router-link
           >

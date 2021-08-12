@@ -24,9 +24,9 @@ const homeRouter = {
     children: [
         { path: '/', redirect: 'introduce' },
         {
-            name: "all",
+            name: "topic",
             path: "topic",
-            component: () => import("../../pages/homepages/All"),
+            component: () => import("../../pages/homepages/Topic"),
             props(route) {
                 return {
                     tab: route.query.tab,
