@@ -2,6 +2,14 @@
   <div class="home">
     <div class="leftNav">
       <ul>
+        <li>
+          <router-link
+            class="homeLink"
+            active-class="homeActive"
+            :to="{ name: 'introduce' }"
+            >介绍</router-link
+          >
+        </li>
         <li v-for="nav in leftNav" :key="nav.id">
           <router-link
             class="homeLink"

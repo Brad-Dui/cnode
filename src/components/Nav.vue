@@ -2,13 +2,22 @@
   <div class="header">
     <h2>CNode</h2>
     <div class="navItems">
-      <router-link class="navLink" active-class="navActive" to="/home"
+      <router-link
+        class="navLink"
+        active-class="navActive"
+        :to="{ name: 'home' }"
         >主页</router-link
       >
-      <router-link class="navLink" active-class="navActive" to="/tutorial"
+      <router-link
+        class="navLink"
+        active-class="navActive"
+        :to="{ name: 'tutorial' }"
         >教程</router-link
       >
-      <router-link class="navLink" active-class="navActive" to="/about"
+      <router-link
+        class="navLink"
+        active-class="navActive"
+        :to="{ name: 'about' }"
         >关于</router-link
       >
     </div>
