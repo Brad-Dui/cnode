@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="header" id="nav">
     <h2>CNode</h2>
     <div class="navItems">
       <router-link
