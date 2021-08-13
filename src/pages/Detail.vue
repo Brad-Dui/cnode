@@ -12,12 +12,15 @@
       </div>
       <div class="artical" v-html="content"></div>
     </div>
+    <Reply :replies="replies" :id="topic.author.loginname"></Reply>
   </div>
 </template>
 
 <script>
 import { computedTime } from "../../public/js/methods";
+import Reply from "./detailcomponent/Reply.vue";
 export default {
+  components: { Reply },
   computed: {
     topic() {
       return JSON.parse(sessionStorage.getItem("topic"));
@@ -42,7 +45,8 @@ export default {
 <style scoped>
 .detail {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .detail .content {
   width: 60%;
@@ -86,9 +90,6 @@ export default {
   .detail .content {
     width: 100%;
     overflow: hidden;
-  }
-  .detail .content >>> img {
-    width: 100%;
   }
 }
 </style>

@@ -34,7 +34,7 @@ export default {
 .header {
   display: flex;
   height: 60px;
-  background-color: #000;
+  background-color: #1b1f22;
 }
 h2 {
   display: inline-block;

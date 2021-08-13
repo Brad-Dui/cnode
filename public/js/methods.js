@@ -11,8 +11,8 @@ const computedTime = function (old) {
         return Math.floor(date / 3_600_000) + "小时";
     } else if (date / 86_400_000 < 30) {
         return Math.floor(date / 86_400_000) + "天";
-    } else if (date / 2_592_000_000 < 12) {
-        return Math.floor(date / 2_592_000_000) + "个月";
+    } else if (date / 2_626_560_000 < 12) {
+        return Math.floor(date / 2_626_560_000) + "个月";
     } else {
         return Math.floor(date / 31_536_000_000) + "年";
     }
