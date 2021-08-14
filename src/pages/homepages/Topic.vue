@@ -69,7 +69,6 @@ export default {
 .all {
   border: 1px solid #444c56;
   border-radius: 5px;
-  overflow: hidden;
 }
 .all li {
   display: flex;
@@ -78,9 +77,6 @@ export default {
   border-bottom: 1px solid #444c56;
   list-style: none;
 }
-/* .all li:last-child {
-  border-bottom: none;
-} */
 .all li:hover {
   background-color: #2d333b;
 }
