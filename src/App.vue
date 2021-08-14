@@ -29,4 +29,9 @@ export default {
   min-height: calc(100vh - 320px);
   margin-bottom: 40px;
 }
+@media screen and (max-width: 612px) {
+  .content {
+    min-height: calc(100vh - 341px);
+  }
+}
 </style>

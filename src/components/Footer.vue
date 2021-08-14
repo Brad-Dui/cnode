@@ -11,7 +11,7 @@
       </p>
       <hr />
       <p class="police">
-        <a href="https://beian.miit.gov.cn/#/Integrated/index"
+        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank"
           >浙ICP备2021021318号-1</a
         >
         <span>Coryright@2021-2022 huchaoqiang.cn Designed by DuiDui</span>
@@ -36,7 +36,7 @@ export default {
   border-radius: 10px;
 }
 .footer .decration {
-  width: 60%;
+  width: 63%;
   display: flex;
   flex-direction: column;
   padding: 30px 10px;

@@ -5,9 +5,7 @@
       背景：此项目借鉴了<a href="https://cnodejs.org/">CNode论坛</a
       >，相关的用户数据、帖子的信息均是从CNode论坛所提供的API获得
     </p>
-    <p>
-      目的：深入学习vuex、vue-router、axios，在项目中发现问题并解决问题-磨炼技术
-    </p>
+    <p>目的：深入学习vuex、vue-router、axios，在项目中发现问题并解决问题</p>
     <p>
       收获：多路由更新同一页面 -
       监听路由跳转发送请求、计算属性获取store中请求的数据
