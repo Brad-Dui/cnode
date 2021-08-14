@@ -1,20 +1,6 @@
 //异步 加载组件
-// function lazyLoadView(AsyncView) {
-//     const AsyncTopic = () => ({
-//         component: AsyncView,
-//         loading: require("../../components/Loading.vue").default,
-//         error: require("../../components/Error.vue").default,
-//         delay: 200,
-//         timeout: 1000
-//     })
-//     return Promise.resolve({
-//         functional: true,
-//         render(h, { data, children }) {
-//             return h(AsyncTopic, data, children)
-//         },
-//     })
-// }
-
+import { lazyLoadView } from '../../../public/js/methods.js'
+const AsyncTopic = () => lazyLoadView(import("../../pages/homepages/Topic.vue"))
 const homeRouter = {
     name: "home",
     path: '/home',
@@ -26,7 +12,7 @@ const homeRouter = {
         {
             name: "topic",
             path: "topic",
-            component: () => import("../../pages/homepages/Topic"),
+            component: AsyncTopic,
             props(route) {
                 return {
                     tab: route.query.tab,

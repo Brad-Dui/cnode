@@ -17,4 +17,19 @@ const computedTime = function (old) {
         return Math.floor(date / 31_536_000_000) + "年";
     }
 }
-export { computedTime }
+const lazyLoadView = function (AsyncView) {
+    const AsyncRouter = () => ({
+        component: AsyncView,
+        loading: require("../../src/pages/homepages/Loading.vue").default,
+        error: require("../../src/pages/homepages/Error.vue").default,
+        delay: 200,
+        timeout: 3000
+    })
+    return Promise.resolve({
+        functional: true,
+        render(h, { data, children }) {
+            return h(AsyncRouter, data, children)
+        },
+    })
+}
+export { computedTime, lazyLoadView }
