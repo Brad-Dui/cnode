@@ -9,10 +9,11 @@ const topicData = {
                         x.author.avatar_url = x.author.avatar_url.replace(".com", ".zeruns.tech")
                     }
                 });
-                console.log("根据" + value[0] + value[1] + "请求的数据", context.state)
                 context.commit('GETTOPIC', res.data.data)
             }).catch(err => {
-                console.log(err.message)
+                if (err.message == "Network Error") {
+                    alert("请求失败，请检查网络")
+                }
             })
         }
     },

@@ -3,6 +3,7 @@ import homeRouter from './modules/home'
 import tutorialRouter from './modules/tutorial'
 import aboutRouter from './modules/about'
 import detailRouter from './modules/detail'
+import userRouter from './modules/user'
 
 const router = new VueRouter({
     routes: [
@@ -10,7 +11,8 @@ const router = new VueRouter({
         homeRouter,
         tutorialRouter,
         aboutRouter,
-        detailRouter
+        detailRouter,
+        userRouter
     ]
 })
 router.afterEach(to => {

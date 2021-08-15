@@ -1,5 +1,6 @@
 //异步 加载组件
 import { lazyLoadView } from '../../../public/js/methods.js'
+
 const AsyncTopic = () => lazyLoadView(import("../../pages/homepages/Topic.vue"))
 const homeRouter = {
     name: "home",

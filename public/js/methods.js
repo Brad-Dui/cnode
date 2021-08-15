@@ -32,4 +32,10 @@ const lazyLoadView = function (AsyncView) {
         },
     })
 }
-export { computedTime, lazyLoadView }
+const checkAddress = function (address) {
+    if (address.startsWith("//gravatar")) {
+        return address.replace(".com", ".zeruns.tech")
+    }
+    else return address
+}
+export { computedTime, lazyLoadView, checkAddress }

@@ -1,6 +1,6 @@
 <template>
   <div class="detail">
-    <div class="content">
+    <div class="container">
       <div class="title">
         <h1>{{ topic.title }}</h1>
         <ul class="user">
@@ -37,7 +37,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch("getReply", this.topic.id);
-    console.log(this.replies);
   },
 };
 </script>
@@ -48,7 +47,7 @@ export default {
   align-items: center;
   flex-direction: column;
 }
-.detail .content {
+.detail .container {
   width: 60%;
   margin: 10px;
   padding: 5px;
@@ -57,37 +56,37 @@ export default {
   color: #adbac7;
   border-radius: 10px;
 }
-.content .title {
+.container .title {
   padding-bottom: 10px;
   border-bottom: 1px solid #4b4949;
 }
-.content .user {
+.container .user {
   width: 100%;
   font-size: 0.6rem;
   display: flex;
 }
-.content .user li {
+.container .user li {
   text-indent: -5px;
   margin-right: 5px;
   margin-left: 1rem;
   flex-shrink: 0;
 }
-.content .artical >>> * {
+.container .artical >>> * {
   text-indent: 2rem;
   margin: 5px 0;
 }
-.content .artical >>> a {
+.container .artical >>> a {
   color: #539bf5;
 }
-.content .artical >>> pre {
+.container .artical >>> pre {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-.content .artical >>> img {
+.container .artical >>> img {
   max-width: 100%;
 }
 @media screen and (max-width: 1000px) {
-  .detail .content {
+  .detail .container {
     width: 100%;
     overflow: hidden;
   }

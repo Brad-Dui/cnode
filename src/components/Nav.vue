@@ -35,6 +35,7 @@ export default {
   display: flex;
   height: 60px;
   background-color: #1b1f22;
+  margin-bottom: 10px;
 }
 h2 {
   display: inline-block;

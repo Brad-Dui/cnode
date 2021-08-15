@@ -3,10 +3,12 @@
     <ul>
       <li v-for="l in topic" :key="l.id">
         <div class="leftItem">
-          <img :src="l.author.avatar_url" />
+          <img :src="l.author.avatar_url" @click="toUser(l.author.loginname)" />
           <Tag :thisTopic="l"></Tag>
           <span class="topicTitle"
-            ><a href="##" @click="toDetail(l)">{{ l.title }}</a></span
+            ><a href="javascript:false" @click="toDetail(l)">{{
+              l.title
+            }}</a></span
           >
         </div>
         <div class="rightItem">
@@ -33,7 +35,6 @@ export default {
   data() {
     return {
       topicData: this.$store.state.topicData,
-      replyDate: {},
     };
   },
   computed: {
@@ -49,6 +50,12 @@ export default {
         name: "detail",
       });
       sessionStorage.setItem("topic", JSON.stringify(topic));
+    },
+    toUser(id) {
+      this.$router.push({
+        name: "user",
+        query: { id },
+      });
     },
   },
   watch: {
@@ -91,6 +98,9 @@ li .leftItem {
   border-radius: 10px;
   overflow: hidden;
   margin: 5px;
+}
+.leftItem img:hover {
+  cursor: pointer;
 }
 .leftItem .topicTitle {
   width: 80%;

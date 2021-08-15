@@ -9,7 +9,6 @@ const replyData = {
                     }
                 });
                 context.commit("GETREPLY", res.data.data.replies)
-                console.log(res.data.data.replies);
             }).catch(err => {
                 console.log(err.message);
             })
