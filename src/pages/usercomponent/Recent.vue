@@ -31,12 +31,19 @@ export default {
       return computedTime(value);
     },
     toDetail(id) {
-      this.$router.push({
-        name: "detail",
-      });
-      this.$store.dispatch("getOneTopic", id);
-      let topic = this.$store.state.oneTopic.topic;
-      sessionStorage.setItem("topic", JSON.stringify(topic));
+      Promise.resolve()
+        .then(() => {
+          this.$store.dispatch("getOneTopic", id);
+        })
+        .then(() => {
+          setTimeout(() => {
+            let topic = this.$store.getters.onetopic;
+            sessionStorage.setItem("topic", JSON.stringify(topic));
+            this.$router.push({
+              name: "detail",
+            });
+          }, 200);
+        });
     },
     toUser(id) {
       this.$router.push({

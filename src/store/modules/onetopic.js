@@ -16,11 +16,16 @@ const oneTopic = {
     },
     mutations: {
         GETONETOPIC(state, topic) {
-            state.topic = topic
+            state.onetopic = topic
         }
     },
     state: {
-        topic: []
+        onetopic: []
+    },
+    getters: {
+        onetopic(state) {
+            return state.onetopic
+        }
     }
 }
 export default oneTopic
