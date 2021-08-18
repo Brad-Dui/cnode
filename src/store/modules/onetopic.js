@@ -9,9 +9,12 @@ const oneTopic = {
                 //     }
                 // });
                 context.commit("GETONETOPIC", res.data.data)
-            }).catch(err => {
-                console.log(err.message);
+            }).then(() => {
+                context.state.tag = true
             })
+                .catch(err => {
+                    console.log(err.message);
+                })
         }
     },
     mutations: {
@@ -20,7 +23,8 @@ const oneTopic = {
         }
     },
     state: {
-        onetopic: []
+        onetopic: [],
+        tag: false
     },
     getters: {
         onetopic(state) {

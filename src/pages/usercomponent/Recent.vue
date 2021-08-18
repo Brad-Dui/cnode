@@ -19,11 +19,31 @@ import { computedTime } from "../../../public/js/methods";
 export default {
   name: "Recent",
   props: ["recent"],
+  computed: {
+    tag: {
+      get() {
+        return this.$store.state.oneTopic.tag;
+      },
+    },
+  },
   watch: {
     $route: function (to, from) {
       if (to !== from) {
         location.reload();
       }
+    },
+    tag: {
+      deep: true,
+      handler(newTag, oldTag) {
+        console.log(newTag, oldTag);
+        let topic = this.$store.getters.onetopic;
+        if (newTag) {
+          sessionStorage.setItem("topic", JSON.stringify(topic));
+          this.$router.push({
+            name: "detail",
+          });
+        }
+      },
     },
   },
   methods: {
@@ -31,19 +51,8 @@ export default {
       return computedTime(value);
     },
     toDetail(id) {
-      Promise.resolve()
-        .then(() => {
-          this.$store.dispatch("getOneTopic", id);
-        })
-        .then(() => {
-          setTimeout(() => {
-            let topic = this.$store.getters.onetopic;
-            sessionStorage.setItem("topic", JSON.stringify(topic));
-            this.$router.push({
-              name: "detail",
-            });
-          }, 200);
-        });
+      this.$store.dispatch("getOneTopic", id);
+      console.log(this);
     },
     toUser(id) {
       this.$router.push({
