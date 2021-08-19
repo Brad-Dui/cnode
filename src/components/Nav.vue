@@ -1,25 +1,27 @@
 <template>
-  <div class="header" id="nav">
-    <h2>CNode</h2>
-    <div class="navItems">
-      <router-link
-        class="navLink"
-        active-class="navActive"
-        :to="{ name: 'home' }"
-        >主页</router-link
-      >
-      <router-link
-        class="navLink"
-        active-class="navActive"
-        :to="{ name: 'tutorial' }"
-        >教程</router-link
-      >
-      <router-link
-        class="navLink"
-        active-class="navActive"
-        :to="{ name: 'about' }"
-        >关于</router-link
-      >
+  <div class="nav" id="nav">
+    <div class="header">
+      <h2>CNode</h2>
+      <div class="navItems">
+        <router-link
+          class="navLink"
+          active-class="navActive"
+          :to="{ name: 'home' }"
+          >主页</router-link
+        >
+        <router-link
+          class="navLink"
+          active-class="navActive"
+          :to="{ name: 'tutorial' }"
+          >教程</router-link
+        >
+        <router-link
+          class="navLink"
+          active-class="navActive"
+          :to="{ name: 'about' }"
+          >关于</router-link
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -31,11 +33,17 @@ export default {
 </script>
 
 <style scoped>
+.nav {
+  height: 60px;
+}
 .header {
   display: flex;
   height: 60px;
   background-color: #1b1f22;
   margin-bottom: 10px;
+  position: fixed;
+  width: 100%;
+  box-shadow: 0 1px 4px #444;
 }
 h2 {
   display: inline-block;
