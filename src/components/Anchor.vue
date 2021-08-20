@@ -1,12 +1,17 @@
 <template>
   <div class="anchor">
-    <a href="#nav"></a>
+    <a href="javascript:false" @click="toTop()"></a>
   </div>
 </template>
 
 <script>
 export default {
   name: "Anchor",
+  methods: {
+    toTop() {
+      this.$bus.$emit("move", 0);
+    },
+  },
 };
 </script>
 

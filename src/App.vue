@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Nav></Nav>
-    <div class="content">
+    <div class="content" ref="content">
       <router-view></router-view>
     </div>
     <Anchor></Anchor>
@@ -19,6 +19,28 @@ export default {
     Nav,
     Anchor,
     Footer,
+  },
+  mounted() {
+    this.$bus.$on("move", this.move);
+  },
+  methods: {
+    //向上非匀速滚动
+    move(iTarget) {
+      let timer = null;
+      clearInterval(timer);
+      timer = setInterval(() => {
+        let scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        let speed = (iTarget - scrollTop) / 6;
+        speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+        if (scrollTop == iTarget) {
+          clearInterval(timer);
+        } else {
+          scrollTop += speed;
+          window.scrollTo(0, scrollTop);
+        }
+      }, 30);
+    },
   },
 };
 </script>

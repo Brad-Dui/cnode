@@ -1,3 +1,4 @@
+//处理事件戳
 const computedTime = function (old) {
     //待优化
     let dataTime = new Date(old).getTime();
@@ -17,6 +18,7 @@ const computedTime = function (old) {
         return Math.floor(date / 31_536_000_000) + "年";
     }
 }
+//异步组件
 const lazyLoadView = function (AsyncView) {
     const AsyncRouter = () => ({
         component: AsyncView,
@@ -32,10 +34,53 @@ const lazyLoadView = function (AsyncView) {
         },
     })
 }
+//处理头像地址
 const checkAddress = function (address) {
     if (address.startsWith("//gravatar")) {
         return address.replace(".com", ".zeruns.tech")
     }
     else return address
 }
+// //获取样式
+// function getStyle(obj, attr) {
+//     if (obj.currentStyle) {
+//         return obj.currentStyle[attr];
+//     }
+//     else {
+//         return getComputedStyle(obj, false)[attr]
+//     }
+// }
+// //运动框架
+// function move(el, attrs, fnNext) {
+//     clearInterval(el.timer)
+//     el.timer = setInterval(() => {
+//         let flag = true;
+//         for (let attr in attrs) {
+//             let realStyle = 0;
+//             if (attr == 'opacity') {
+//                 realStyle = Math.round(parseFloat(getStyle(el, attr)) * 100);
+//             }
+//             else {
+//                 realStyle = parseInt(getStyle(el, attr));
+//             }
+//             let speed = (attrs[attr] - realStyle) / 6;
+//             speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+//             if (attr == 'opacity') {
+//                 el.style[attr] = (realStyle + speed) / 100;
+//                 el.style.filter = 'alpha(opacity =' + (realStyle + speed) + ')';
+
+//             }
+//             else {
+//                 el.style[attr] = realStyle + speed + 'px';
+//             }
+//             if (attrs[attr] != realStyle) {
+//                 flag = false;
+//             }
+//         }
+//         if (flag) {
+//             clearInterval(el.timer)
+//             if (fnNext) fnNext();
+//         }
+//     }, 30)
+// }
 export { computedTime, lazyLoadView, checkAddress }
