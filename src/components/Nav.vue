@@ -35,12 +35,12 @@ export default {
 <style scoped>
 .nav {
   height: 60px;
+  margin-bottom: 10px;
 }
 .header {
   display: flex;
   height: 60px;
   background-color: #1b1f22;
-  margin-bottom: 10px;
   position: fixed;
   width: 100%;
   box-shadow: 0 1px 4px #444;
