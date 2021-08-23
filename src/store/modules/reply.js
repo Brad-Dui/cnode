@@ -1,12 +1,11 @@
 import axios from "axios";
+import checkAddress from '../../../public/js/methods'
 const replyData = {
     actions: {
         getReply(context, id) {
             axios.get(`https://cnodejs.org/api/v1/topic/${id}`).then(res => {
                 res.data.data.replies.forEach(x => {
-                    if (x.author.avatar_url.startsWith("//gravatar")) {
-                        x.author.avatar_url = x.author.avatar_url.replace(".com", ".zeruns.tech")
-                    }
+                    x.author.avatar_url = checkAddress(x.author.avatar_url)
                 });
                 context.commit("GETREPLY", res.data.data.replies)
             }).catch(err => {
